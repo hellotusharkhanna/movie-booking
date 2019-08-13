@@ -1,11 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-
-// export enum TimeSlot {
-//   MORNING = 'morning',
-//   AFTERNOON = 'afternoon',
-//   EVENING = 'evening'
-// }
 
 export interface TicketsModel {
   maxTickets: number;
@@ -142,9 +135,9 @@ export class MoviesBookingService {
       theater => theater.name.toLowerCase() === name.toLowerCase()
     );
     if (!isTheaterAlreadyExists && name) {
-      this.currentTheaters.push({
-        name
-      });
+      // this.currentTheaters.push({
+      //   name
+      // });
     }
   }
 }

@@ -12,9 +12,6 @@ import {
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  theaters: TheaterModel[];
-  myTemplate = '../../home/home.component.html';
-
   constructor(
     private moviesService: MoviesBookingService,
     public dialog: MatDialog
@@ -22,9 +19,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {}
 
-  showAllTheaters() {
-    this.theaters = this.moviesService.getMoviesInTheatres();
-  }
+  showAllTheaters() {}
 
   openAddTheaterDialog(): void {
     const dialogRef = this.dialog.open(AddTheaterDialogComponent, {
