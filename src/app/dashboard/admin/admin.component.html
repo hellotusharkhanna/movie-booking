@@ -1,3 +1,15 @@
-<p>
-  admin works!
-</p>
+<div>
+  <button mat-stroked-button (click)="openAddTheaterDialog()">
+    Add theater
+  </button>
+</div>
+
+<mat-tab-group>
+  <mat-tab label="Show all theaters">
+    <ng-template matTabContent>
+      <span [innerHtml]="myTemplate">{{ showAllTheaters() }}</span>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Add new theater"> Content 2 </mat-tab>
+  <mat-tab label="Delete theater"> Content 3 </mat-tab>
+</mat-tab-group>

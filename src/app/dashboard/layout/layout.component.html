@@ -1,8 +1,17 @@
-<h1>Dashboard Layout</h1>
-<p>
-  <a routerLink="home" >Home</a> |
-  <a routerLink="admin"> Admin </a> |
-  <button (click)="logout()"> Logout</button>
-</p>
+<mat-toolbar color="accent">
+  <mat-toolbar-row class="mv-header">
+    <a routerLink="home">Home</a> | <a routerLink="admin"> Admin </a>
+    <button
+      mat-raised-button
+      color="primary"
+      class="mv-logout-btn"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="mv-default-padding">
+  <router-outlet></router-outlet>
+</div>

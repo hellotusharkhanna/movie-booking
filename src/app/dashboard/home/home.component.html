@@ -1,14 +1,33 @@
-<div>
-    <button (click)="openAddTheaterDialog()">Add theater</button>
+<div *ngFor="let theater of theaters">
+  {{ theater.name }}
+  <div class="mv-movie-cards">
+    <div class="mv-movie-card">
+      <mat-card
+        class="example-card"
+        *ngFor="let mov of theater.movies; let i = index"
+      >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ mov.name }}</mat-card-title>
+          <mat-card-subtitle>{{ theater.location }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://loremflickr.com/100/100/{{ mov.name }}"
+        />
+        <mat-card-content>
+          Time Slots
+          <span>
+            <br /><br />
+            <div>Morning: {{ mov.slots.morning.ticketsBooked }}</div>
+            <div>Afternoon: {{ mov.slots.afternoon.ticketsBooked }}</div>
+            <div>Evening:{{ mov.slots.evening.ticketsBooked }}</div>
+          </span>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button>Book Slot</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
-
-<ul>
-  <li *ngFor="let theater of theaters; let i = index">
-    <ul>
-      {{theater.name}}:  
-      Movies running: <span *ngFor="let mov of theater.movies"> <br>
-        {{mov.name}} : {{mov.pendingSlots}} </span>
-    </ul>
-    <br>
-  </li>
-</ul>

@@ -1,54 +1,131 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
-export interface MovieModel {
+// export enum TimeSlot {
+//   MORNING = 'morning',
+//   AFTERNOON = 'afternoon',
+//   EVENING = 'evening'
+// }
+
+export interface TicketsModel {
+  maxTickets: number;
+  ticketsBooked: number;
+}
+
+export interface SeatsBasedOnTimeSlot {
+  [key: string]: TicketsModel;
+}
+
+export class MovieModel {
   name: string;
-  pendingSlots: number;
-  maxSlots: number;
+  slots: SeatsBasedOnTimeSlot;
 }
 
 export interface TheaterModel {
   name: string;
-  movies?: MovieModel[];
+  location: string;
+  movies: MovieModel[];
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class MoviesBookingService {
   private currentTheaters: TheaterModel[] = [
     {
-      name: "Theater 1",
+      name: 'DT Mall Theater',
+      location: 'Chandigarh',
       movies: [
         {
-          name: "Jungle Book",
-          pendingSlots: 10,
-          maxSlots: 30
+          name: 'Jungle Book',
+          slots: {
+            morning: {
+              maxTickets: 70,
+              ticketsBooked: 61
+            },
+            afternoon: {
+              maxTickets: 70,
+              ticketsBooked: 62
+            },
+            evening: {
+              maxTickets: 70,
+              ticketsBooked: 63
+            }
+          }
         },
         {
-          name: "3 Idiots",
-          pendingSlots: 15,
-          maxSlots: 30
+          name: '3 Idiots',
+          slots: {
+            morning: {
+              maxTickets: 70,
+              ticketsBooked: 41
+            },
+            afternoon: {
+              maxTickets: 70,
+              ticketsBooked: 42
+            },
+            evening: {
+              maxTickets: 70,
+              ticketsBooked: 43
+            }
+          }
         }
       ]
     },
     {
-      name: "Theater 2",
+      name: 'Elante Mall Theater',
+      location: 'Mohali',
       movies: [
         {
-          name: "Barfi",
-          pendingSlots: 5,
-          maxSlots: 30
+          name: '3 Idiots',
+          slots: {
+            morning: {
+              maxTickets: 70,
+              ticketsBooked: 29
+            },
+            afternoon: {
+              maxTickets: 70,
+              ticketsBooked: 30
+            },
+            evening: {
+              maxTickets: 70,
+              ticketsBooked: 31
+            }
+          }
         },
         {
-          name: "Queen",
-          pendingSlots: 2,
-          maxSlots: 30
+          name: 'Queen',
+          slots: {
+            morning: {
+              maxTickets: 70,
+              ticketsBooked: 54
+            },
+            afternoon: {
+              maxTickets: 70,
+              ticketsBooked: 55
+            },
+            evening: {
+              maxTickets: 70,
+              ticketsBooked: 56
+            }
+          }
         },
         {
-          name: "Elizabeth",
-          pendingSlots: 2,
-          maxSlots: 30
+          name: 'Elizabeth',
+          slots: {
+            morning: {
+              maxTickets: 70,
+              ticketsBooked: 58
+            },
+            afternoon: {
+              maxTickets: 70,
+              ticketsBooked: 59
+            },
+            evening: {
+              maxTickets: 70,
+              ticketsBooked: 60
+            }
+          }
         }
       ]
     }
