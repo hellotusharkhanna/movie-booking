@@ -1,5 +1,21 @@
 # MovieBooking
 
+Create a movie booking system. It should exhibit following traits.
+Part 1 - user view:
+-	List all the current screening movies group by movie theatre.
+-	List available movie slots per theatre.
+-	Book the movie tickets if
+    Movie slot is available
+    Maximum of 9 tickets booked together
+-	Show purchase history of the user.
+Part 2 - admin view:
+-	Add new movie theatre.
+-	Update movie theatre information.
+-	Delete movie theater
+    If there is no movie being screened OR
+    There is no movie ticket booked for the next day.
+-	List all the movie theatres.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
 ## Development server

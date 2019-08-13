@@ -1,0 +1,14 @@
+<div>
+    <button (click)="openAddTheaterDialog()">Add theater</button>
+</div>
+
+<ul>
+  <li *ngFor="let theater of theaters; let i = index">
+    <ul>
+      {{theater.name}}:  
+      Movies running: <span *ngFor="let mov of theater.movies"> <br>
+        {{mov.name}} : {{mov.pendingSlots}} </span>
+    </ul>
+    <br>
+  </li>
+</ul>
